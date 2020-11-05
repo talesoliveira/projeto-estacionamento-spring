@@ -4,8 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
 
-import com.estacionamento.beca.model.Cliente;
+import com.estacionamento.beca.model.Setor;
+
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+public interface SetorRepository extends JpaRepository<Setor, Long> {
 
 }
