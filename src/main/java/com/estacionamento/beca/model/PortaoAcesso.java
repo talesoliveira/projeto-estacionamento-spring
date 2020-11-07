@@ -1,6 +1,7 @@
 package com.estacionamento.beca.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,17 +10,29 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
-public class PortaoAcesso {
+public class PortaoAcesso{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne
-	private Cliente cliente;
-	private Date entrada;
-	private Date saida;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataEntrada;
+	
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataSaida;
+	
+	@JsonFormat(pattern = "HH:mm:ss")
+	private LocalTime horaEntrada;
+	
+	@JsonFormat(pattern = "HH:mm:ss")
+	private LocalTime horaSaida;
+	
 	@ManyToOne
 	private Veiculo veiculo;
+	
 	@OneToOne
 	private Setor setor;
 
@@ -35,29 +48,6 @@ public class PortaoAcesso {
 		this.id = id;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Date getEntrada() {
-		return entrada;
-	}
-
-	public void setEntrada(Date entrada) {
-		this.entrada = entrada;
-	}
-
-	public Date getSaida() {
-		return saida;
-	}
-
-	public void setSaida(Date saida) {
-		this.saida = saida;
-	}
 
 	public Veiculo getVeiculo() {
 		return veiculo;
@@ -74,5 +64,39 @@ public class PortaoAcesso {
 	public void setSetor(Setor setor) {
 		this.setor = setor;
 	}
+
+	public LocalDate getDataEntrada() {
+		return dataEntrada;
+	}
+
+	public void setDataEntrada(LocalDate dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
+
+	public LocalDate getDataSaida() {
+		return dataSaida;
+	}
+
+	public void setDataSaida(LocalDate dataSaida) {
+		this.dataSaida = dataSaida;
+	}
+
+	public LocalTime getHoraEntrada() {
+		return horaEntrada;
+	}
+
+	public void setHoraEntrada(LocalTime horaEntrada) {
+		this.horaEntrada = horaEntrada;
+	}
+
+	public LocalTime getHoraSaida() {
+		return horaSaida;
+	}
+
+	public void setHoraSaida(LocalTime horaSaida) {
+		this.horaSaida = horaSaida;
+	}
+
+
 
 }

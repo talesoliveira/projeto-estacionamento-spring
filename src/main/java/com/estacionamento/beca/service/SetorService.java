@@ -18,5 +18,9 @@ public class SetorService {
 		return setor;
 
 	}
+	
+	public Setor buscarTodos() {
+		return setorRepository.findAll().get(0);
+	}
 
 }

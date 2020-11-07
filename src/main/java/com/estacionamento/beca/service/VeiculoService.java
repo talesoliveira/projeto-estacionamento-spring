@@ -13,7 +13,7 @@ public class VeiculoService {
 
 	public Veiculo salvarVeiculo(Veiculo veiculo) {
 
-		veiculoRepository.save(veiculo);//primeiro o cliente get e  set 
+		veiculoRepository.save(veiculo);
 		return veiculo;
 
 	}
