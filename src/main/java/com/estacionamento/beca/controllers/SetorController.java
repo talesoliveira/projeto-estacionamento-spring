@@ -3,25 +3,22 @@ package com.estacionamento.beca.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.estacionamento.beca.model.Setor;
-import com.estacionamento.beca.repository.SetorRepository;
+import com.estacionamento.beca.service.SetorService;
 
 @RestController
-@RequestMapping("/api/setor")
+@RequestMapping("/api")
 public class SetorController {
 
 	@Autowired
-	private SetorRepository setorRepository;
+	private SetorService setorService;
 
-	@PostMapping
-	public @ResponseBody Setor novoSetor(Setor setor) {
-
-		setorRepository.save(setor);
+	@PostMapping("/salvaSetor")
+	public Setor salvaSetor(Setor setor) {
+		setorService.salvaSetor(setor);
 		return setor;
-
 	}
 
 }

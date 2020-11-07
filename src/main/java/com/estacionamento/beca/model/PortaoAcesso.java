@@ -27,7 +27,6 @@ public class PortaoAcesso {
 
 	}
 
-
 	public Long getId() {
 		return id;
 	}

@@ -1,12 +1,10 @@
 package com.estacionamento.beca.model;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
 
 @Entity
 public class Setor {
@@ -17,8 +15,9 @@ public class Setor {
 	private Integer numeroVagas;
 	@ManyToOne
 	private Veiculo veiculo;
-	public Setor(){
-		
+
+	public Setor() {
+
 	}
 
 	public Long getId() {
@@ -44,6 +43,5 @@ public class Setor {
 	public void setNumeroVagas(Integer numeroVagas) {
 		this.numeroVagas = numeroVagas;
 	}
-	
-	
+
 }
