@@ -35,7 +35,7 @@ public class PortaoAcesso{
 	
 	@OneToOne
 	private Setor setor;
-
+	
 	public PortaoAcesso() {
 
 	}
