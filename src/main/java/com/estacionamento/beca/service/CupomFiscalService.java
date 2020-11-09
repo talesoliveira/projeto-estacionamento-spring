@@ -10,8 +10,7 @@ import com.estacionamento.beca.repository.CupomFiscalRepository;
 
 @Service
 public class CupomFiscalService {
-	
-	
+
 	@Autowired
 	private CupomFiscalRepository cupomRepository;
 
@@ -23,21 +22,11 @@ public class CupomFiscalService {
 	}
 
 	public CupomFiscal tempoTotalEstacionado(Duration tempoNaVaga) {
-		
-		CupomFiscal cupom =new CupomFiscal();
-	
-		
+
+		CupomFiscal cupom = new CupomFiscal();
 		cupom.setTempoTotal(tempoNaVaga.toMinutes());
 		cupomRepository.save(cupom);
-		
 		return cupom;
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

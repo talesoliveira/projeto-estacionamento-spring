@@ -13,10 +13,9 @@ public class CupomFiscal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private BigDecimal precoTotal;
+	private BigDecimal taxaHoraAtual;
 
 	private Long tempoTotal;
-
 
 	public Long getTempoTotal() {
 		return tempoTotal;
@@ -31,11 +30,11 @@ public class CupomFiscal {
 	}
 
 	public BigDecimal getPrecoTotal() {
-		return precoTotal;
+		return taxaHoraAtual;
 	}
 
 	public void setPrecoTotal(BigDecimal precoTotal) {
-		this.precoTotal = precoTotal;
+		this.taxaHoraAtual = precoTotal;
 	}
 
 	public Long getId() {
@@ -44,6 +43,14 @@ public class CupomFiscal {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public BigDecimal getTaxaHoraAtual() {
+		return taxaHoraAtual;
+	}
+
+	public void setTaxaHoraAtual(BigDecimal taxaHoraAtual) {
+		this.taxaHoraAtual = taxaHoraAtual;
 	}
 
 }

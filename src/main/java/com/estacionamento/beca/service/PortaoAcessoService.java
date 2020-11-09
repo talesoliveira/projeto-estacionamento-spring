@@ -7,9 +7,7 @@ import java.time.LocalTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.estacionamento.beca.model.CupomFiscal;
 import com.estacionamento.beca.model.PortaoAcesso;
-import com.estacionamento.beca.repository.CupomFiscalRepository;
 import com.estacionamento.beca.repository.PortaoAcessoRepository;
 
 @Service
@@ -20,8 +18,6 @@ public class PortaoAcessoService {
 
 	@Autowired
 	private SetorService setorService;
-	@Autowired
-	private CupomFiscalRepository cupomFiscalRepository;
 
 	@Autowired
 	private CupomFiscalService cupomService;
@@ -43,9 +39,8 @@ public class PortaoAcessoService {
 		veiculoSaindo.setHoraSaida(LocalTime.now());
 		veiculoSaindo.setDataSaida(LocalDate.now());
 		portaoAcessoRepository.save(veiculoSaindo);
-		calculaTempoNaVaga(veiculoSaindo);//continua fluxo
-	
-        
+		calculaTempoNaVaga(veiculoSaindo);
+
 		return veiculoSaindo;
 
 	}
@@ -53,7 +48,6 @@ public class PortaoAcessoService {
 	public PortaoAcesso calculaTempoNaVaga(PortaoAcesso veiculoSaindo) {
 
 		PortaoAcesso registroVeiculo = portaoAcessoRepository.findById(veiculoSaindo.getId()).get();
-
 		registroVeiculo.getHoraEntrada();
 		registroVeiculo.getHoraSaida();
 
@@ -61,13 +55,9 @@ public class PortaoAcessoService {
 		LocalTime saida = registroVeiculo.getHoraSaida();
 
 		Duration tempoNaVaga = Duration.between(entrada, saida);
-		
-		
 		cupomService.tempoTotalEstacionado(tempoNaVaga);
-			
 		return registroVeiculo;
 
 	}
-	
-	
+
 }

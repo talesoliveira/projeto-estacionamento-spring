@@ -12,7 +12,6 @@ public class Setor {
 	private Long id;
 	private String nomeSetor;
 	private Integer numeroVagas;
-	
 
 	public Setor() {
 
